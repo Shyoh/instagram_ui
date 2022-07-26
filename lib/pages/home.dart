@@ -7,16 +7,6 @@ import 'package:instagram_ui/util/UserPost.dart';
 
 class UserHome extends StatelessWidget {
   @override
-  List people = [
-    'shyshyoh',
-    'lilseyiofficial',
-    'exrtgreen',
-    'montellfish',
-    'overpade',
-    'supamedia',
-    'mermzcreates',
-  ];
-
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -44,27 +34,9 @@ class UserHome extends StatelessWidget {
       body: Column(
         children: [
           //Stories
-          Container(
-            color: Colors.transparent,
-            height: 130,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: people.length,
-              itemBuilder: (context, index) {
-                return BubbleStories(name: people[index]);
-              },
-            ),
-          ),
+          BubbleStories(),
           //Square post
-          Expanded(
-            child: ListView.builder(
-              scrollDirection: Axis.vertical,
-              itemCount: people.length,
-              itemBuilder: (context, index) {
-                return UserPost(text: people[index]);
-              },
-            ),
-          ),
+          UserPost(),
         ],
       ),
     );
